@@ -1,6 +1,8 @@
 # openingsource_daily
 
-A new Flutter project.
+开源工场-开源日报栏目 iOS 客户端
+
+Android 客户端项目地址 -> [OpeningSourceORG/opening-source-app](https://github.com/OpeningSourceORG/opening-source-app)
 
 ## Getting Started
 
