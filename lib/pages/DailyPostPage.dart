@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'DailyPostDetailPage.dart';
 
 class DailyPostPage extends StatefulWidget {
   @override
@@ -6,40 +7,36 @@ class DailyPostPage extends StatefulWidget {
 }
 
 class _DailyPostPageState extends State<DailyPostPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            //开源日报封面图
-            Image.network(
-              'https://openingsource.org/wp-content/uploads/2019/03/opensource_daily_vol_374.jpg'
-            ),
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
+      backgroundColor: Color(0xfff2f3f5),
+      body: GestureDetector(
+        onVerticalDragEnd:(details){
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              fullscreenDialog: true,
+              builder: (context) => DailyPostDetailPage()
+            )
+          );
+        },
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              //开源日报封面图
+              Image.network(
+                'https://openingsource.org/wp-content/uploads/2019/04/opensource_daily_vol_391.jpg'
+              ),
+              Text(
+                '开源日报',
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        )
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), 
     );
   }
 }
