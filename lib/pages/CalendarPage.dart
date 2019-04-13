@@ -9,6 +9,7 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff2f3f5),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

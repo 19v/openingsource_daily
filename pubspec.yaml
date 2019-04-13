@@ -25,6 +25,9 @@ dependencies:
   cupertino_icons: ^0.1.2
   dio: ^2.1.0
   fluttertoast: ^3.0.3
+  http: ^0.12.0+2
+  html2md: ^0.3.1
+  flutter_markdown: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +44,19 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+  - family: iconfont
+    fonts:
+      - asset: assets/fonts/iconfont.ttf
+  - family: Comfortaa-Bold
+    fonts:
+      - asset: assets/fonts/Comfortaa-Bold.ttf
+  - family: Comfortaa-Light
+    fonts:
+      - asset: assets/fonts/Comfortaa-Light.ttf
+  - family: Comfortaa-Regular
+    fonts:
+      - asset: assets/fonts/Comfortaa-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

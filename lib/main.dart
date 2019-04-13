@@ -59,8 +59,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             unselectedLabelColor: Color(0xff666666),
             indicatorSize: TabBarIndicatorSize.label,
             tabs: <Widget>[
-              Tab(icon: Icon(Icons.calendar_today)),
-              Tab(icon: Icon(Icons.adb)),
+              Tab(icon: Icon(Icons.calendar_view_day)),
+              Tab(icon: Icon(Icons.today)),
               Tab(icon: Icon(Icons.settings)),
             ],
             controller: _tabController,
