@@ -4,15 +4,17 @@
 
 Android 客户端项目地址 -> [OpeningSourceORG/opening-source-app](https://github.com/OpeningSourceORG/opening-source-app)
 
-## Getting Started
+# 进度 - v0.1
 
-This project is a starting point for a Flutter application.
+现在只完成了最基本的功能：查看当天日报。
 
-A few resources to get you started if this is your first Flutter project:
+等哪天空闲下来了再继续写 🤣
 
+截图：
+![主界面](https://i.loli.net/2019/04/13/5cb19af918e59.png)
+![推文详情](https://i.loli.net/2019/04/13/5cb19afa55236.png)
+
+# 参考
 - [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+- [online documentation](https://flutter.io/docs)

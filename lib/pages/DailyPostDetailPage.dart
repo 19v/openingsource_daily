@@ -1,26 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui';
+import '../utils/NetWork.dart';
+import 'package:html2md/html2md.dart' as html2md;
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class DailyPostDetailPage extends StatefulWidget {
+  DailyPostDetailPage(this.postID);
+  final postID;
   @override
   _DailyPostDetailPageState createState() => _DailyPostDetailPageState();
 }
 
 class _DailyPostDetailPageState extends State<DailyPostDetailPage> {
+  
+  Map <String, dynamic> post = {};
+
+  @override
+  void initState() {
+    super.initState();
+    Network.get("posts/${widget.postID}",).then((data) {
+      if (data['status'] == 'ok' && data['code'] == 200) {
+        Map <String, dynamic> item = data['data'];
+        String temp; //临时变量
+        //文章ID
+        post['id'] = item['id']; 
+        //发布时间
+        temp = item['date'].toString();
+        post['year'] = temp.substring(0,4);
+        post['month'] = temp.substring(5,7);
+        post['day'] = temp.substring(8,10);
+        //文章标题
+        temp = item['title']['rendered'];
+        post['title'] = temp;
+        post['vol'] = temp.substring(5,8);
+        //封面
+        temp = item['content_first_image'];
+        post['DailyVolImage'] = temp.replaceAll("_vol_", "_cover_vol_");
+        //文章内容
+        post['contentUrl'] = item['content']['rendered'];
+        post['contentMD'] = html2md.convert(post['contentUrl']);
+        print(post);
+        if(mounted) setState(() {}); // 防止setState() called after dispose()出现
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-    return Scaffold(
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+    return post.isEmpty
+    ? Container(
+        color: Color(0xfff2f3f5),
+        padding: EdgeInsets.all(30),
+        child: Center(
+          child: CircularProgressIndicator()
+        )
+      )
+    : Scaffold(
       backgroundColor: Colors.white,
-      body: RefreshIndicator(
-        color: Colors.white,
-        backgroundColor: Colors.white,
-        notificationPredicate: defaultScrollNotificationPredicate,
-        semanticsLabel: "喵",
-        onRefresh:() { Navigator.pop(context); },
-        child: _buildBody(),
-      ),
+      body: _buildBody(),
     );
   }
 
@@ -32,7 +71,7 @@ class _DailyPostDetailPageState extends State<DailyPostDetailPage> {
           alignment: Alignment.topCenter,
           children: <Widget>[
             Image(
-              image: NetworkImage('https://openingsource.org/wp-content/uploads/2019/04/opensource_daily_cover_vol_391.jpg'),
+              image: NetworkImage(post['DailyVolImage']),
               fit: BoxFit.cover,
               height: MediaQuery.of(context).size.width/4*3,
             ),
@@ -45,7 +84,7 @@ class _DailyPostDetailPageState extends State<DailyPostDetailPage> {
                   padding: EdgeInsets.fromLTRB(20,20,20,0),
                   alignment: Alignment.center,
                   child: Text(
-                    "开源日报第391期\n《弹钢琴 AutoPiano》",
+                    post['title'],
                     textAlign: TextAlign.center,
                     softWrap: true,
                     style: TextStyle(
@@ -72,19 +111,7 @@ class _DailyPostDetailPageState extends State<DailyPostDetailPage> {
         Container(
           padding: EdgeInsets.all(20),
           color: Colors.white,
-          child: Text(
-            "这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文这个是正文",
-            textAlign: TextAlign.left,
-            textDirection: TextDirection.ltr,
-            softWrap: true,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 12,
-              fontWeight: FontWeight.normal,
-              height: 1.5,
-              letterSpacing: 0.5
-            )
-          ),
+          child: MarkdownBody(data: post['contentMD']),
         ),
       ]
     );
