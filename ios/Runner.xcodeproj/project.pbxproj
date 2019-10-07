@@ -277,15 +277,21 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+<<<<<<< HEAD
 			inputFileListPaths = (
 			);
+=======
+>>>>>>> dev
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh",
 				"${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+<<<<<<< HEAD
 			outputFileListPaths = (
 			);
+=======
+>>>>>>> dev
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 			);

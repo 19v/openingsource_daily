@@ -1,5 +1,6 @@
 PODS:
   - Flutter (1.0.0)
+<<<<<<< HEAD
   - flutter_custom_tabs (0.0.1):
     - Flutter
   - fluttertoast (0.0.2):
@@ -21,10 +22,19 @@ DEPENDENCIES:
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
   - video_player (from `.symlinks/plugins/video_player/ios`)
+=======
+  - fluttertoast (0.0.2):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+>>>>>>> dev
 
 EXTERNAL SOURCES:
   Flutter:
     :path: ".symlinks/flutter/ios"
+<<<<<<< HEAD
   flutter_custom_tabs:
     :path: ".symlinks/plugins/flutter_custom_tabs/ios"
   fluttertoast:
@@ -50,3 +60,15 @@ SPEC CHECKSUMS:
 PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
 
 COCOAPODS: 1.6.1
+=======
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  fluttertoast: b644586ef3b16f67fae9a1f8754cef6b2d6b634b
+
+PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
+
+COCOAPODS: 1.8.0.beta.2
+>>>>>>> dev
