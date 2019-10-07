@@ -1,3 +1,5 @@
+[TOC]
+
 # openingsource_daily
 
 开源工场-开源日报栏目 iOS 客户端
@@ -16,7 +18,7 @@ Android 客户端项目地址 -> [OpeningSourceORG/opening-source-app](https://g
 
 等哪天空闲下来了再继续写 🤣
 
-截图：
+# 截图
 ![主界面1](./DEMO/DEMO1.png)
 ![主界面2](./DEMO/DEMO2.png)
 ![推文详情1](./DEMO/DEMO3.png)
