@@ -11,7 +11,6 @@ class DailyPostPage extends StatefulWidget {
 class _DailyPostPageState extends State<DailyPostPage> {
   
   int _page = 1; //日报序号
-  String _showDate; //底部显示的日期
 
   Map <String, dynamic> todayPosts = {};
 
