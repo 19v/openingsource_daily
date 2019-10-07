@@ -75,7 +75,7 @@ class _DailyPostPageState extends State<DailyPostPage> {
         color: Color(0xfff2f3f5),
         child: Container(
           height: 60,
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+          padding: EdgeInsets.fromLTRB(10, 0, 10, 20),
           alignment: Alignment.topCenter,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
