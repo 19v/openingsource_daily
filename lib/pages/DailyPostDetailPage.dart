@@ -13,7 +13,7 @@ class DailyPostDetailPage extends StatefulWidget {
 }
 
 class _DailyPostDetailPageState extends State<DailyPostDetailPage> {
-  
+
   Map <String, dynamic> post = {};
   bool showToTopBtn = false; //是否显示“返回到顶部”按钮
   ScrollController _controller = ScrollController();

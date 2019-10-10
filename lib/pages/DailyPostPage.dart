@@ -8,7 +8,10 @@ class DailyPostPage extends StatefulWidget {
   _DailyPostPageState createState() => _DailyPostPageState();
 }
 
-class _DailyPostPageState extends State<DailyPostPage> {
+class _DailyPostPageState extends State<DailyPostPage> with AutomaticKeepAliveClientMixin {
+  
+  @override
+  bool get wantKeepAlive => true;
   
   int _page = 1; //日报序号
 
@@ -66,6 +69,7 @@ class _DailyPostPageState extends State<DailyPostPage> {
   
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       backgroundColor: Color(0xfff2f3f5),
       body: DailyPostWidget(todayPosts),

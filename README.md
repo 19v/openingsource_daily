@@ -1,5 +1,3 @@
-[TOC]
-
 # openingsource_daily
 
 开源工场-开源日报栏目 iOS 客户端
@@ -11,6 +9,8 @@ Android 客户端项目地址 -> [OpeningSourceORG/opening-source-app](https://g
 ## v0.2 (20191007)
 
 现在基本能用了，可以查看今天的日报，也可以切换日期。
+
+(如果碰到了gradle那些的问题。请检查用户目录下的 .gradle文件夹 中的 gradle.properties 文件，注释掉或删去其中的代理设置。)
 
 ## v0.1
 
