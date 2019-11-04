@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
+import '../common/Global.dart';
 
 //网络处理
 
 class Network{
-  static String apiUrl = "https://openingsource.org/wp-json/wp/v2/";
+  static String apiUrl = ApiUrl.getApiUrl();
   static get(String url, [dynamic parameter]) async {
     try {
       url = Network.apiUrl + url;

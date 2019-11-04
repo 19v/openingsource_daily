@@ -13,6 +13,7 @@ class _SettingPageState extends State<SettingPage> with AutomaticKeepAliveClient
   @override
   Widget build(BuildContext context) {
     super.build(context);
+
     return Scaffold(
       backgroundColor: Color(0xfff2f3f5),
       body: Center(
