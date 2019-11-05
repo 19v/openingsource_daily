@@ -1,0 +1,82 @@
+import 'package:flutter/material.dart';
+import './pages/DailyPostPage.dart';
+import './pages/CalendarPage.dart';
+import './pages/SettingPage.dart';
+
+void main() => runApp(MyApp());
+
+//将TabBar换成BottomNavigationBar的版本。
+
+class MyApp extends StatelessWidget {
+  // Root of application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '开源日报',
+      color: Color(0xff4384f7),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        primaryColorBrightness: Brightness.light,
+        brightness: Brightness.light,
+        backgroundColor: Color(0xfff2f3f5),
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+//首页，定义导航栏等基本框架。
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  int _currentIndex = 0;
+  final List<Widget> _pages = [
+    DailyPostPage(),
+    CalendarPage(),
+    SettingPage()
+  ];
+  
+  @override
+  void dispose() { super.dispose(); }
+  void initState() { super.initState(); }
+  void _onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        onTap: _onTabTapped,
+        currentIndex: _currentIndex,
+        backgroundColor: Color(0xfff2f3f5),
+        fixedColor: Color(0xff4384f7),
+        unselectedItemColor: Color(0xffcccccc),
+        items: [
+          _navBarSet(Icons.today, "日报"),
+          _navBarSet(Icons.calendar_view_day, "新闻"),
+          _navBarSet(Icons.settings, "设置"),
+        ],
+      ),
+    );
+  }
+  BottomNavigationBarItem _navBarSet(icon, text){
+    return BottomNavigationBarItem(
+      icon: Icon(icon, size: 24.0),
+      title: Text(
+        text, 
+        style: TextStyle(
+          fontSize: 0.0,
+        ),
+      ),
+    );
+  }
+}

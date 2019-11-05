@@ -13,7 +13,7 @@ class _DailyPostPageState extends State<DailyPostPage> with AutomaticKeepAliveCl
   @override
   bool get wantKeepAlive => true;
   
-  int _page = 1; //日报序号
+  int _page = 1;  //日报序号
 
   Map <String, dynamic> todayPosts = {};
 
@@ -102,6 +102,7 @@ class _DailyPostPageState extends State<DailyPostPage> with AutomaticKeepAliveCl
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(30,10,30,10),
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: Color(0xffe0e0e0),
                   borderRadius: BorderRadius.circular(100.0),
@@ -109,7 +110,7 @@ class _DailyPostPageState extends State<DailyPostPage> with AutomaticKeepAliveCl
                 child: Text(
                   _getDate(),
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 15,
                     color: Color(0xff666666),
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.5
