@@ -152,7 +152,7 @@ class _DailyPostDetailPageState extends State<DailyPostDetailPage> {
           ];
         },
         body: ListView(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.fromLTRB(20, 20, 20, 100),
           children: <Widget>[
             Container(
               color: Colors.white,
